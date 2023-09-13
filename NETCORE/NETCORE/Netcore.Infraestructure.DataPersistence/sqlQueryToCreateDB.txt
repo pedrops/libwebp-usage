@@ -1,0 +1,83 @@
+﻿USE [NETCORE]
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 9/09/2023 13:30:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](max) NOT NULL,
+	[LastName] [nvarchar](max) NOT NULL,
+	[Address] [nvarchar](max) NOT NULL,
+	[Email] [nvarchar](max) NOT NULL,
+	[PhoneNumber] [nvarchar](max) NOT NULL,
+	[Profile] [nvarchar](max) NOT NULL,
+	[IsFullTime] [bit] NOT NULL,
+	[HourRate] [decimal](18, 2) NOT NULL,
+	[Active] [bit] NOT NULL,
+	[InsertedDate] [datetime2](7) NOT NULL,
+	[UpdatedDate] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 9/09/2023 13:30:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NOT NULL,
+	[Password] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[WeekPeriod]    Script Date: 9/09/2023 13:30:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WeekPeriod](
+	[Id] [nvarchar](450) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[WorkedHours] [int] NOT NULL,
+	[InsertedDate] [datetime2](7) NOT NULL,
+	[UpdatedDate] [datetime2](7) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Employee] ON 
+GO
+INSERT [dbo].[Employee] ([Id], [FirstName], [LastName], [Address], [Email], [PhoneNumber], [Profile], [IsFullTime], [HourRate], [Active], [InsertedDate], [UpdatedDate]) VALUES (1, N'string', N'string', N'string', N'string', N'string', N'string', 1, CAST(20.00 AS Decimal(18, 2)), 1, CAST(N'2023-09-09T07:11:12.0466667' AS DateTime2), CAST(N'2023-09-09T07:11:12.0466667' AS DateTime2))
+GO
+INSERT [dbo].[Employee] ([Id], [FirstName], [LastName], [Address], [Email], [PhoneNumber], [Profile], [IsFullTime], [HourRate], [Active], [InsertedDate], [UpdatedDate]) VALUES (2, N'a', N'a', N'aa', N'a', N'a', N'string', 1, CAST(0.00 AS Decimal(18, 2)), 1, CAST(N'2023-09-09T07:08:02.7366667' AS DateTime2), CAST(N'2023-09-09T07:08:02.7366667' AS DateTime2))
+GO
+INSERT [dbo].[Employee] ([Id], [FirstName], [LastName], [Address], [Email], [PhoneNumber], [Profile], [IsFullTime], [HourRate], [Active], [InsertedDate], [UpdatedDate]) VALUES (3, N'string', N'string', N'string', N'string', N'string', N'string', 1, CAST(0.00 AS Decimal(18, 2)), 1, CAST(N'2023-09-09T09:21:55.6033333' AS DateTime2), CAST(N'2023-09-09T09:21:55.6033333' AS DateTime2))
+GO
+INSERT [dbo].[Employee] ([Id], [FirstName], [LastName], [Address], [Email], [PhoneNumber], [Profile], [IsFullTime], [HourRate], [Active], [InsertedDate], [UpdatedDate]) VALUES (4, N'string', N'string', N'string', N'string', N'string', N'string', 1, CAST(0.00 AS Decimal(18, 2)), 1, CAST(N'2023-09-09T09:21:55.6033333' AS DateTime2), CAST(N'2023-09-09T09:21:55.6033333' AS DateTime2))
+GO
+SET IDENTITY_INSERT [dbo].[Employee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[User] ON 
+GO
+INSERT [dbo].[User] ([Id], [UserName], [Password]) VALUES (1, N'Daniel', N'RABhAG4AaQBlAGwAMQAyADMA')
+GO
+INSERT [dbo].[User] ([Id], [UserName], [Password]) VALUES (2, N'andy', N'YQBuAGQAeQA=')
+GO
+INSERT [dbo].[User] ([Id], [UserName], [Password]) VALUES (3, N'andy@email.com', N'YQBuAGQAeQA=')
+GO
+INSERT [dbo].[User] ([Id], [UserName], [Password]) VALUES (4, N'test@gmail.copm', N'passwordabcd')
+GO
+SET IDENTITY_INSERT [dbo].[User] OFF
+GO
+INSERT [dbo].[WeekPeriod] ([Id], [Description], [EmployeeId], [WorkedHours], [InsertedDate], [UpdatedDate]) VALUES (N'2023-7', N'90920232', 1, 41, CAST(N'1900-01-01T00:00:00.0000000' AS DateTime2), CAST(N'1900-01-01T00:00:00.0000000' AS DateTime2))
+GO
+INSERT [dbo].[WeekPeriod] ([Id], [Description], [EmployeeId], [WorkedHours], [InsertedDate], [UpdatedDate]) VALUES (N'2023-7', N'90920232', 2, 30, CAST(N'1900-01-01T00:00:00.0000000' AS DateTime2), CAST(N'1900-01-01T00:00:00.0000000' AS DateTime2))
+GO
