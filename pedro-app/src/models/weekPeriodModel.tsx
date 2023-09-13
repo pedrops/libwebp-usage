@@ -1,0 +1,18 @@
+export type WeekPeriodModel = {
+    id:string,
+    firstName:string,
+    lastName:string,
+    address:string,
+    email:string,
+    phoneNumber:string,
+    profile:string,
+    isFullTime:boolean,
+    hourRate:number,
+    active:boolean,
+    insertedDate:string,
+    updatedDate:string,
+    workedHours:number,
+    bonus:number,
+    weekPayment:number,
+    weekTotalPayment:number,
+}
